@@ -2,7 +2,7 @@
 
     # Don't track content of these folders
     node_modules/
-    gitignore/
+    hellowebgis/gitignore/
 
 # ignore all bin directories
     # matches "bin" in any subfolder
@@ -10,7 +10,7 @@
 
     # ignore all target directories
     target/
-    gitignore/
+    hellowebgis/gitignore/
 
     # ignore all files ending with ~
     *~
