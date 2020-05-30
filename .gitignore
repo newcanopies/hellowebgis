@@ -1,15 +1,15 @@
 # Edit at https://www.gitignore.io/?templates=git,windows,visualstudiocode
 
+    # Don't track content of these folders
+    node_modules/
+    gitignore/
+
 # ignore all bin directories
     # matches "bin" in any subfolder
     bin/
 
     # ignore all target directories
     target/
-    gitignore/
-
-    # Don't track content of these folders
-    node_modules/
     gitignore/
 
     # ignore all files ending with ~
