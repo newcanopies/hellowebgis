@@ -5,7 +5,12 @@
     bin/
 
     # ignore all target directories
-    target/testbin
+    target/
+    gitignore/
+
+    # Don't track content of these folders
+    node_modules/
+    gitignore/
 
     # ignore all files ending with ~
     *~
