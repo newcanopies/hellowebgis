@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>NZ Earthquakes</title>
+        <!-- Place your CSS, JS libraries below this -->
+        <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
+        
+        <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+
+
+        <style type="text/css" media="screen, print">
+        @font-face {
+            font-family: "Roboto";
+               src: url("https://fonts.googleapis.com/css2?family=Muli:ital,wght@1,200&family=Roboto:ital,wght@1,100&family=Titillium+Web:ital,wght@1,200&display=swap" rel="stylesheet");
+                   }
+           body { font-family: "Roboto", sans-serif;
+                background-color:darkslategray;
+                margin: 0;
+                padding: 0;
+                -webkit-animation: colorchange 60s infinite; 
+                animation: colorchange 60s infinite  
+               }
+           @-webkit-keyframes colorcange {
+           100%  {background: rgb(96, 107, 105);}
+           25%  {background: #33FFF3;}
+           25%  {background: #117A65;}
+           50%  {background: #78281F;}
+           75%  {background: #DC7633;}
+           100% {background: #9B59B6;}
+           }
+           @keyframes colorchange {
+           100%  {background: rgb(96, 107, 105);}
+           25%  {background: #33FFF3;}
+           25%  {background: #117A65;}
+           50%  {background: #78281F;}
+           75%  {background: #DC7633;}
+           100% {background: #9B59B6;}
+           }  
+        </style>
+    </head>
+
+    <body>
+      
+        <h1 style="color:white; padding-left:50px">New Zealand Earthquakes 2016-11 <i>(new symbols)</i></h1>
+        <p style="color:white; padding-left:50px">Map by magnitude (diameter) and depth (opacity). <a href="https://www.geonet.org.nz/earthquake" style="color:white">Data source</a>.</p>
+        <div id='nzeq_map' style='width: 800px; height: 700px;'></div>
+
+        <script>
+            // tkn
+            mapboxgl.accessToken = 
+            'pk.eyJ1IjoiZXNvZmkiLCJhIjoiY2thYWNtZ20wMHVvMTM0cGdjZjZ2OWRtayJ9.ei9FDkBsBfogL_GOZLOB7A';
+
+            var map = new mapboxgl.Map({
+                container: 'nzeq_map',   //points to id='nzeq_map' 
+                style: 'mapbox://styles/esofi/ckaabmue902i21ioml0jzjgm4', // mbox style
+                center: [173.067450,-42.302638],                // [lng, lat]
+                zoom: 6.30                                  // zoom
+            });
+
+        // Add circles
+             map.on('load', function () {
+                map.addLayer({
+                'id': 'earthquakes',
+                'type': 'circle',
+                'source': {
+                  type: 'vector',
+               // url: 'mapbox://USERNAME.XXXXXXXXX' //
+                  url: 'mapbox://styles/esofi/ckaabmue902i21ioml0jzjgm4' // update with your Tileset ID
+                 },
+                'source-layer': 'esofi.0p7svf4j', // update with the name of tileset) Mapbox Streets v8
+                'paint': {
+                    'circle-radius': 10,
+                    'circle-color': '#ff0000', // red in hexadecimal (RRGGBB)
+                    'circle-opacity': 0.3
+                 }
+            });
+        });
+
+        </script>
+         <p style="color:white; padding-left:50px">
+            Back to <a style="color:cadetblue" href='../index.html'>newcanopies</a></p> 
+        <p style="padding-left:500px"><i>This mapbox service expires June 4th, 2020</i></p>
+    
+        </body>
+
+</html> 

@@ -1,0 +1,146 @@
+<!--
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Population Change by Commune LU</title>
+
+      Load external JS and CSS libraries here -->
+<!--
+      <style>
+      /* Add CSS code here */
+  
+      </style>
+    </head>
+
+  <body>
+      Back to <a href='../index.html'>index</a><br>
+      <h1>Example map</h1>
+      <p>Some text here perhaps.</p>
+       Place your map <div> below -->
+<!--
+      <script>
+      // this is where JavaScript code goes
+  
+      </script>
+    </body>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Population Change by Commune LU</title>
+
+        <!-- Load external JS and CSS libraries here -->
+		 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+   
+   <script src="luxpop.js"></script>
+   
+
+      <style>
+      /* Add CSS code here */
+	  
+	  
+
+	  #mapid { height:600px }
+	  #mapid { width:700px }
+	  
+	  
+#thelegend {
+         background-color: #fff;
+         padding:30px;
+         font-size:1.5em;
+}
+	  
+	  
+
+      </style>
+    </head>
+
+  <body>
+      Back to <a href='../index.html'>index</a><br>
+      <h1>Luxembourg’s Communal Population Change Over Time</h1>
+      <p>The Leaflet Animantion Map shows Luxembourg’s communal population change over time..</p>
+      <!-- Place your map <div> below -->
+	  
+	 <div id="mapid"></div>
+
+      <script>
+      // this is where JavaScript code goes
+	  var mymap = L.map('mapid').setView([49.8, 6.1], 9);
+	  
+	  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1Ijoic2hvYWliYXplZW0iLCJhIjoiY2thMTEwNHI1MG5kZjNncXJ6dGZhbnE5YSJ9.QjwbYFEALPf8g5LsbaRqAg'
+}).addTo(mymap);
+
+var myLayer = L.geoJSON().addData(luxpop).addTo(mymap);
+
+
+// Add this after you add the map, below where you added/loaded the data to Leaflet
+var Legend = L.Control.extend({
+    options: { position: 'bottomright' },
+    onAdd: function () {
+        var legend = L.DomUtil.create('div');
+        legend.id = "thelegend";
+        return legend;
+    }
+});
+
+mymap.addControl(new Legend());
+
+
+
+
+ // Get the names of the attributes with the year in the order we want to display them
+const tp = ["N1821", "N1851", "N1871", "N1880", "N1890", "N1900", "N1910", "N1922", "N1930", "N1935", "N1947", "N1960", "N1970", "N1981", "N1991", "N2001", "N2011", "N2012", "N2013"];
+ 
+ // increment visualization year
+ function updateStyling(i) {
+     // Loop back year if we go over
+     i = (i < tp.length) ? i : 0;
+     
+     // This iterates through the features, passing the 'feature' to the function one at a time
+     myLayer.setStyle(function(feature) {
+         let mapval = feature.properties[tp[i]];
+		 
+		 
+         
+         // selected from ColorBrewer
+         // for each feature it returns an object with properties (in this case color, could be other)
+         if(mapval > 35000) return {fillColor: '#003c30', fillOpacity: 1};
+         if(mapval > 30000) return {fillColor: '#01665e', fillOpacity: 1};
+         if(mapval > 20000) return {fillColor: '#35978f', fillOpacity: 1};
+         if(mapval > 10000) return {fillColor: '#80cdc1', fillOpacity: 1};
+         if(mapval > 5000) return {fillColor: '#c7eae5', fillOpacity: 1};
+         if(mapval > 3000) return {fillColor: '#f6e8c3', fillOpacity: 1};
+         if(mapval > 2000) return {fillColor: '#dfc27d', fillOpacity: 1};
+         if(mapval > 1000) return {fillColor: '#bf812d', fillOpacity: 1};
+         if(mapval > 500) return {fillColor: '#8c510a', fillOpacity: 1};
+         if(mapval > 0) return {fillColor: '#543005', fillOpacity: 1};
+     });
+     
+     // call yourself in half a second (500 milli-seconds)
+     setTimeout(function(){ updateStyling(i + 1) }, 500);
+	 
+// Add this to your JS. Beneath SetTimeout(...).
+document.getElementById('thelegend').textContent = tp[i];
+ };
+ 
+ 
+ // first call, the first column (index name is 0)
+ updateStyling(0);
+  
+      </script>
+    </body>
+</html>

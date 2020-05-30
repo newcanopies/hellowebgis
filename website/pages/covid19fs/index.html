@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style type="text/css" media="screen, print">
+ 
+         @font-face {
+        font-family: "Roboto";
+        src: url("https://fonts.googleapis.com/css2?family=Muli:ital,wght@1,200&family=Roboto:ital,wght@1,100&family=Titillium+Web:ital,wght@1,200&display=swap" rel="stylesheet");
+        }
+        body { font-family: "Roboto", sans-serif }
+        html, body, #map {
+            width: 100%;
+            height: 98%;
+            padding: 0;
+            margin: 0;
+            background: #292b2c
+        }
+        </style>
+        <title>COVID-19 Fatalities as of May 7</title>
+    </head>
+    <body>
+        <p style="color:silver">Back to <a style="color:white" href='../../index.html'>newcanopies</a></p>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="data/05072020v_1.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+            highlightLayer.openPopup();
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:3
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+            map.setMaxBounds(map.getBounds());
+        }
+        map.createPane('pane_OSMStandard_0');
+        map.getPane('pane_OSMStandard_0').style.zIndex = 400;
+        var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_OSMStandard_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+            minZoom: 3,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OSMStandard_0;
+        map.addLayer(layer_OSMStandard_0);
+        function pop_05072020v_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FIPS'] !== null ? autolinker.link(feature.properties['FIPS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Admin2'] !== null ? autolinker.link(feature.properties['Admin2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Province_State</th>\
+                        <td>' + (feature.properties['Province_State'] !== null ? autolinker.link(feature.properties['Province_State'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Country_Region</th>\
+                        <td>' + (feature.properties['Country_Region'] !== null ? autolinker.link(feature.properties['Country_Region'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Last_Update'] !== null ? autolinker.link(feature.properties['Last_Update'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Lat'] !== null ? autolinker.link(feature.properties['Lat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Long_'] !== null ? autolinker.link(feature.properties['Long_'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Confirmed</th>\
+                        <td>' + (feature.properties['Confirmed'] !== null ? autolinker.link(feature.properties['Confirmed'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Deaths</th>\
+                        <td>' + (feature.properties['Deaths'] !== null ? autolinker.link(feature.properties['Deaths'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Recovered</th>\
+                        <td>' + (feature.properties['Recovered'] !== null ? autolinker.link(feature.properties['Recovered'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Active</th>\
+                        <td>' + (feature.properties['Active'] !== null ? autolinker.link(feature.properties['Active'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Combined_Key'] !== null ? autolinker.link(feature.properties['Combined_Key'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_05072020v_1_0(feature) {
+            if (feature.properties['Deaths'] >= 1.000000 && feature.properties['Deaths'] <= 10.000000 ) {
+                return {
+                pane: 'pane_05072020v_1',
+                radius: 1.2,
+                opacity: 1,
+                color: 'rgba(128,17,25,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Deaths'] >= 10.000000 && feature.properties['Deaths'] <= 100.000000 ) {
+                return {
+                pane: 'pane_05072020v_1',
+                radius: 2.4,
+                opacity: 1,
+                color: 'rgba(128,17,25,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Deaths'] >= 100.000000 && feature.properties['Deaths'] <= 1000.000000 ) {
+                return {
+                pane: 'pane_05072020v_1',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(128,17,25,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Deaths'] >= 1000.000000 && feature.properties['Deaths'] <= 10000.000000 ) {
+                return {
+                pane: 'pane_05072020v_1',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(128,17,25,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Deaths'] >= 10000.000000 && feature.properties['Deaths'] <= 30615.000000 ) {
+                return {
+                pane: 'pane_05072020v_1',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(128,17,25,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_05072020v_1');
+        map.getPane('pane_05072020v_1').style.zIndex = 401;
+        map.getPane('pane_05072020v_1').style['mix-blend-mode'] = 'normal';
+        var layer_05072020v_1 = new L.geoJson(json_05072020v_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_05072020v_1',
+            layerName: 'layer_05072020v_1',
+            pane: 'pane_05072020v_1',
+            onEachFeature: pop_05072020v_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_05072020v_1_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_05072020v_1);
+        map.addLayer(layer_05072020v_1);
+        setBounds();
+        </script>
+    </body>
+</html>

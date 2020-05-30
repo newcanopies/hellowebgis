@@ -1,0 +1,12 @@
+name: brexitmap
+title: Brexitmap
+username:
+account: serial
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 842579
+bundleId: 1990221
+url: https://serial.shinyapps.io/brexitmap/
+when: 1554498441.40744
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,12 @@
+name: brexit
+title: brexit
+username:
+account: canopies
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2313594
+bundleId: 3158247
+url: https://canopies.shinyapps.io/brexit/
+when: 1589729075.96669
+asMultiple: FALSE
+asStatic: FALSE

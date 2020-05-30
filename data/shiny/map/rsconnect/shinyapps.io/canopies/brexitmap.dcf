@@ -1,0 +1,12 @@
+name: brexitmap
+title: Brexitmap
+username: esofi
+account: canopies
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 842579
+bundleId: 1990221
+url: https://canopies.shinyapps.io/brexitmap/
+when: 1554498441.40744
+asMultiple: FALSE
+asStatic: FALSE
