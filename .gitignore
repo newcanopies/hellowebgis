@@ -5,7 +5,7 @@
     bin/
 
     # ignore all target directories
-    target/
+    target/testbin
 
     # ignore all files ending with ~
     *~
