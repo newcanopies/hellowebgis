@@ -130,7 +130,7 @@
         <div id='nzeq_map' style='width: 800px; height: 700px;'></div>
 
         <div class='map-overlay' id='features'><h2 style="color:cadetblue">NZ Earthquakes 2016</h2>
-       <div id='pd'><p>hover over a quake-point</p></div> 
+       <div id='pd'><p>Magnitude & Depth</p></div> 
         </div>
   <div class='map-overlay' id='legend'></div>
      
@@ -160,7 +160,7 @@
                 '0 - 2.025684415', '2.025684416 - 4.923', '4.924 - 6.327', '6.328 - 7.820379733', '7.820379733+'
             ];
             var colors = [
-                '#FFEDA0', '#FED976', '#FEB24C', '#FD8D3C', '#FC4E2A', '#E31A1C', '#BD0026', '#800026'
+                '#C6BEBE', '#765B5B', '#453B3B', '#5F3E7A', '#673F97'
             ];
             
             // ADD LEGEND
@@ -194,7 +194,7 @@
                     '</strong> Radius represents magnitude</em></p>';
             } else {
             document.getElementById('pd').innerHTML = 
-            '<p>Hover over a quake-point</p>';
+            '<p>Magnitude & Depth</p>';
             }
 
             //MAP BOUNDS
