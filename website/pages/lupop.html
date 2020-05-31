@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Population Change by Commune LU</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Muli:ital,wght@1,200&display=swap" rel="stylesheet"> 
         <link rel="icon" type="image/x-icon" href="../imgs/anim_favico/anim_geo/favicon.ico" id="icon"/> 
         <link rel="icon" type="image/png" sizes="32x32" href="../imgs/anim_favico/anim.ico/favicon-32x32.png" id="icon">
@@ -16,7 +17,7 @@
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
             crossorigin=""></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         
         <!-- ALT
         <link rel="icon" type="icon/x-image" href="../website/imgs/anim_favico/anim_geo/favicon.ico"/>
@@ -94,10 +95,10 @@
         </style>
     </head>
     <body>
-        <p style="color: whitesmoke; margin-left: 15px;">Back to <a style="font-weight: bolder;" href='../index.html'>newcanopies</a></p>
+        <p style="color: whitesmoke; margin-left: 15px;">Back to <a style="font-weight: bold; color: cadetblue;" href='../index.html'>newcanopies</a></p>
         
         <div id="banner" class="container">
-            <h1>Population Change by Commune, LU</h1>
+            <h1>Population Change by Commune, LU </br> 1821-2013</h1>
             <p>Luxembourg's dynamic rate of population change by commune has been animated with Leaflet JS.</p>
         </div>
         <!-- map <div> -->
@@ -106,7 +107,7 @@
         <script>
             var banner = true;
          // JavaScript code for loading the map div
-	        var mymap = L.map('mapid').setView([49.68, 6.1], 9.5);
+	        var mymap = L.map('mapid').setView([49.68, 6.1], 9);
 	  
 	        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
