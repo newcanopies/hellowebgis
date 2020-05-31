@@ -108,7 +108,8 @@
                 background: rgba(255, 255, 255, 0.733);
             }
         #linkback {
-                position: relative;
+                position: absolute;
+                top: 90%;
                 z-index: 999;  
             }
         .container {
@@ -121,7 +122,7 @@
     <body>    
         <div id="banner" class="container">
             <h2>Prescribed Fires in 2020, Australia</h2>
-            <p style="color: tomato; font-weight: bold;">Hover over Fire-markers for more information on the planned event, and compare between Satellite and Terrain basemaps. </p>
+            <p style="color: tomato; font-weight: bold;">Hover over Fire-markers for more information on the planned event, </br>and compare between Satellite and Terrain basemaps. </p>
         </div>
         <div id="map">
             <div id="popup" class="ol-popup">
@@ -141,7 +142,7 @@
         <script src="./resources/Autolinker.min.js"></script>
         <script src="./resources/qgis2web.js"></script>
         <div id="linkback">
-        <p style="margin-left: 50px; float:bottom;">Back to <a style="color: tomato; font-weight: bolder;" href='../index.html'>newcanopies</a></p>
+        <p style="margin-left: 50px;">Back to <a style="color: tomato; font-weight: bolder;" href='../index.html'>newcanopies</a></p>
         </div>
     </body>
 </html>
