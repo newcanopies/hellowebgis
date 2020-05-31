@@ -1,6 +1,7 @@
+const mydata = 
 {
 "type": "FeatureCollection",
-"name": "gsm_providers",
+"name": "gsm_towers",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::2169" } },
 "features": [
 { "type": "Feature", "properties": { "x": 73557, "y": 79537, "owner": "POST Luxembourg" }, "geometry": { "type": "Point", "coordinates": [ 73557.0, 79537.0 ] } },
@@ -1158,4 +1159,4 @@
 { "type": "Feature", "properties": { "x": 77272, "y": 79076, "owner": "POST Luxembourg" }, "geometry": { "type": "Point", "coordinates": [ 77272.0, 79076.0 ] } },
 { "type": "Feature", "properties": { "x": 59819, "y": 64282, "owner": "TANGO S.A." }, "geometry": { "type": "Point", "coordinates": [ 59819.0, 64282.0 ] } }
 ]
-}
+};

@@ -1,4 +1,4 @@
-{
+const mydata = {
 "type": "FeatureCollection",
 "name": "sample_points",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::2169" } },
@@ -210,4 +210,4 @@
 { "type": "Feature", "properties": { "id": "PM\/EM\/331", "luref_x": 61629, "luref_y": 101949, "title": "TITLE", "description": "PM Grevels [Administration de l'Environnement]", "date": "2018-04-17", "Vm": 338.4 }, "geometry": { "type": "Point", "coordinates": [ 61629.0, 101949.0 ] } },
 { "type": "Feature", "properties": { "id": "PM\/EM\/332", "luref_x": 64817, "luref_y": 90490, "title": "TITLE", "description": "PM Rippweiler WT [Administration de l'Environnement]", "date": "2020-03-17", "Vm": 1683.0 }, "geometry": { "type": "Point", "coordinates": [ 64817.0, 90490.0 ] } }
 ]
-}
+};
