@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <title>COVID-19 Fatalities as of May 7</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="shortcut icon" href="../favicon.ico" id="icon">
         <link rel="icon" type="image/x-icon" href="../../imgs/anim_favico/anim_geo/favicon.ico" id="icon"/> 
@@ -13,7 +14,20 @@
         <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
-        <style type="text/css" media="screen, print">
+        
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="data/05072020v_1.js"></script>
+       
+ <style type="text/css" media="screen, print">
  
          @font-face {
         font-family: "Roboto";
@@ -28,26 +42,15 @@
             background: #292b2c
         }
         </style>
-        <title>COVID-19 Fatalities as of May 7</title>
+        
     </head>
     <body>
-        <div style="padding-left:50px; padding-top: 5px; position: absolute; position: float-left;" >
+        <div style="padding-left:10px; padding-top:10px; position:absolute; position:float-left;" >
             <p style="color:silver; font-size: large;">Global COVID-19 Fatalities, as of May 7</p>
             </div> 
-        <div id="map">
+        <div id="map" style="position:relative; padding-top:20px;">
         </div>
-        <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
-        <script src="js/leaflet.rotatedMarker.js"></script>
-        <script src="js/leaflet.pattern.js"></script>
-        <script src="js/leaflet-hash.js"></script>
-        <script src="js/Autolinker.min.js"></script>
-        <script src="js/rbush.min.js"></script>
-        <script src="js/labelgun.min.js"></script>
-        <script src="js/labels.js"></script>
-        <script src="js/leaflet-measure.js"></script>
-        <script src="data/05072020v_1.js"></script>
-        <script>
+      <script>
         var highlightLayer;
         function highlightFeature(e) {
             highlightLayer = e.target;
