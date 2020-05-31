@@ -104,9 +104,9 @@
         padding: 10px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         line-height: 18px;
-        height: 150px;
+        height: 100px;
         margin-bottom: 40px;
-        width: 100px;
+        width: 200px;
         }
 
         .legend-key {
@@ -155,7 +155,7 @@
             
            // define layer names
             var layers = [
-                '0-10', '10-20', '20-50', '50-100', '100-200', '200-500', '500-1000', '1000+'
+                '0 - 2.025684415', '2.025684416 - 4.923', '4.924 - 6.327', '6.328 - 7.820379733', '7.820379733+'
             ];
             var colors = [
                 '#FFEDA0', '#FED976', '#FEB24C', '#FD8D3C', '#FC4E2A', '#E31A1C', '#BD0026', '#800026'
@@ -163,7 +163,7 @@
             
             // ADD LEGEND
            for (i = 0; i < layers.length; i++) {
-                var layer = layers[i];
+                var radius = layers[i];
                 var color = colors[i];
                 var item = document.createElement('div');
                 var key = document.createElement('span');
@@ -171,7 +171,7 @@
                 key.style.backgroundColor = color;
 
                 var value = document.createElement('span');
-                value.innerHTML = layer;
+                value.innerHTML = radius;
                 item.appendChild(key);
                 item.appendChild(value);
                 legend.appendChild(item);
