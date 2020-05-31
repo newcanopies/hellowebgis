@@ -84,7 +84,6 @@
         * on the page. */
         .map-overlay {
         position: absolute;
-       
         bottom: 0;
         right: 0;
         background: rgba(255, 255, 255, 0.8);
@@ -130,9 +129,9 @@
         <div id='nzeq_map' style='width: 800px; height: 700px;'></div>
 
         <div class='map-overlay' id='features'><h2 style="color:cadetblue">NZ Earthquakes 2016</h2>
-       <div id='pd'><p>Magnitude & Depth</p></div> 
+        <div id='pd'><p>Magnitude & Depth</p></div> 
         </div>
-  <div class='map-overlay' id='legend'></div>
+        <div class='map-overlay' id='legend'></div>
      
        <script>
             // (JS) comment 
@@ -181,8 +180,8 @@
 
             // HOVER "mouseon event" (change info window on hover) 
             map.on('mousemove', function(e) {
-                var states = map.queryRenderedFeatures(e.point, {
-                 layers: ['statedata']
+                var magnitude = map.queryRenderedFeatures(e.point, {
+                 layers: ['magnitude']
             });
 
             if (states.length > 0) {

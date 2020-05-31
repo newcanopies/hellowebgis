@@ -24,14 +24,42 @@
         }
       body { font-family: "Roboto", sans-serif; 
              color: silver
-        }
              
+        }
+        .map-overlay {
+        position: absolute;
+        bottom: 0;
+        
+        background: rgba(255, 255, 255, 0.8);
+       
+        font-family: Arial, sans-serif;
+        overflow: auto;
+        position: absolute;
+        border-radius: 3px;
+        z-index: 999;
+        }
+
+        #features {
+        top: 0;
+        padding: 10px;
+        position: absolute;
+        margin-left: 800px;
+        height: 20px;
+        margin-top: 112px;
+        width: 400px;
+        }
+
         </style>
         <title>Global COVID-19 cases as of May 7</title>
     </head>
-    <body>
-        <p style="font-size: large;"> Confirmed COVID-19 Cases globally as of May 7</p> 
-    </br>
+    <body style="width: 1300px;">
+        <p style="font-size: large;"> Confirmed COVID-19 Cases globally as of May 7, 2020. </p> 
+            <div class='map-overlay' id='features' style="position: absolute;">
+                <i style="font-size: smaller;">Hover over points of interest for more information.</i>
+  <!--  <h2 style="color:cadetblue"></h2>    
+        <div id='pd'><p>Magnitude & Depth</p></div> -->
+        </div>
+    <!--    <div class='map-overlay' id='legend'></div> -->
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
