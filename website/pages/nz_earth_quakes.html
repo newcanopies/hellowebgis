@@ -10,16 +10,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Muli:ital,wght@1,200&display=swap" rel="stylesheet"> 
         <!-- CSS, JS libraries below this -->
-       <!--
-        <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css' rel='stylesheet' />
-       -->
-        <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />
-        <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />
-        <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+
+       <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js'></script>
+       <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css' rel='stylesheet' />
+
+       <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
+       <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />
+       <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
+       <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />
+       <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+       <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
 
         <style type="text/css" media="screen, print">
                
@@ -128,10 +128,10 @@
         <div id='nzeq_map' style='width: 800px; height: 700px;'></div>
 
         <div class='map-overlay' id='features'><h2 style="color:cadetblue">NZ Earthquakes 2016</h2>
-            <div id='pd'><p>hover over a quake-point</p></div>
+       <div id='pd'><p>hover over a quake-point</p></div> 
         </div>
-        <div class='map-overlay' id='legend'></div>
-       
+  <div class='map-overlay' id='legend'></div>
+     
        <script>
             // (JS) comment 
             // tkn
@@ -142,10 +142,11 @@
                 container: 'nzeq_map',   // points to id='nzeq_map'
               //  style: 'mapbox://styles/mapbox/nz_eq', // mapbox style 
                 style: 'mapbox://styles/esofi/ckaa72hri45e41jo2o6vw3221',
-                center: [-41.287958, 172.795828],      // [lng, lat]
+                center: [172.795828,-41.287958],      // [lng, lat]
                 zoom: 5.66                            // zoom
             });
 
+           
             // wait for map to load before adjusting it
             map.on('load', function() {
             
@@ -161,7 +162,7 @@
             ];
             
             // ADD LEGEND
-            for (i = 0; i < layers.length; i++) {
+           for (i = 0; i < layers.length; i++) {
                 var layer = layers[i];
                 var color = colors[i];
                 var item = document.createElement('div');
@@ -191,12 +192,12 @@
                     '</strong> people per square mile</em></p>';
             } else {
             document.getElementById('pd').innerHTML = 
-            '<p>Hover over a state!</p>';
+            '<p>Hover over a quake-point</p>';
             }
 
             //MAP BOUNDS
-            //map.fitBounds([[-133.2421875, 16.972741], [-47.63671875, 52.696361]]);
-            // NZ centroid [172.795828,  -41.287958 ]
+           // map.fitBounds([[-133.2421875, 16.972741], [-47.63671875, 52.696361]]);
+           //  NZ centroid [172.795828,  -41.287958 ]
         });
      });
         </script>
