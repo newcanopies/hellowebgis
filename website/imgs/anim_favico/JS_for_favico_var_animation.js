@@ -40,13 +40,13 @@ function updateFavicon() {
 // An important point is to note that you need to remove the favicon <link> tags first, and then re-insert it. Just changing the href attribute won't work.
 
 var favicon_images = [
-    'http://website.com/img/tmp-0.gif',
-    'http://website.com/img/tmp-1.gif',
-    'http://website.com/img/tmp-2.gif',
-    'http://website.com/img/tmp-3.gif',
-    'http://website.com/img/tmp-4.gif',
-    'http://website.com/img/tmp-5.gif',
-    'http://website.com/img/tmp-6.gif'
+    '../website/imgs/anim_favico/anim_geo/favicon1.ico',
+    'https:www.websitesource.com/tmp-1.gif',
+    '../website/imgs/anim_favico/anim_geo//tmp-2.gif',
+    '../website/imgs/anim_favico/anim_geo//tmp-3.gif',
+    '../website/imgs/anim_favico/anim_geo//tmp-4.gif',
+    '../website/imgs/anim_favico/anim_geo//tmp-5.gif',
+    '../website/imgs/anim_favico/anim_geo//tmp-6.gif'
 ],
 image_counter = 0; // To keep track of the current image
 
