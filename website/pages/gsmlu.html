@@ -294,16 +294,49 @@ https://{s}.tile.thunderforest.com/neighbourhood/{z}/{x}/{y}{r}.png?apikey=7c352
     
       map.setView([49.72, 6.1], 10);
     
+        // Load data (within the block of the function initMap()
+        // map.data.addGeoJson('../data/gsm/gsm_towers.json');
+        // map.data.addGeoJson('../data/gsm/sample_points.json');
+	    map.data.addGeoJson(gsm_towers);
+        map.data.addGeoJson(sample_points);
+        //map.data.loadGeoJson('data/gsm/sample_points.json');              
+        //map.data.loadGeoJson('data/gsm/gsm_towers.json');
+       
+        map.data.setStyle(function(feature) {
+        let geo = feature.getGeometry();
+        let colour = "#838380";
+        let c_radius = 220;
+        let opacity = 0.5;
 
-    // Load data (this code should be within the block of the function initMap()
-   // map.data.addGeoJson('../data/gsm/gsm_towers.json');
-   // map.data.addGeoJson('../data/gsm/sample_points.json');
-    map.data.addGeoJson(gsm_towers);
-    map.data.addGeoJson(sample_points);
+        // sample_points, attribute label of 'title'
+        if(feature.getProperty('title')) {
+            opacity = 0.85;
+            c_radius = feature.getProperty('Vm');
+            colour = "#ff7f00";
+        if( c_radius > 2000 ) {
+            colour = "#984ea3";
+        }
+        if( c_radius > 5000 ) {
+            colour = "#377eb8";
+        }
+        }
+        // gsm_towers, attribute label of 'owner'
+        if( feature.getProperty('owner')) {
+                }
 
+        new thunderforest.maps.Circle({
+            strokeColor: colour,
+            strokeOpacity: 0.5,
+            strokeWeight: 2,
+            fillColor: colour,
+            fillOpacity: opacity,
+            map: map,
+            center: geo.get(),
+            radius: c_radius
+        });
 
-//map.data.loadGeoJson('data/gsm/sample_points.json');              
-//map.data.loadGeoJson('data/gsm/gsm_towers.json');
+        return {visible:false};
+        });
 
     </script>
     <p style="color:white; padding-left:40px">
