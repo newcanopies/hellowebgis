@@ -1,4 +1,4 @@
-const gsm_towers = 
+const mydata = 
 {
 "type": "FeatureCollection",
 "name": "gsm_towers",
