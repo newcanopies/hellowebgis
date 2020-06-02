@@ -203,6 +203,8 @@
             75%  {background: #DC7633;}
             100% {background: #9B59B6;}
         }  
+        /* Always set the map height explicitly to define the size of the div
+        /* element that contains the map. */
         #map {
             width: 800px;
         }
@@ -299,12 +301,12 @@ https://{s}.tile.thunderforest.com/neighbourhood/{z}/{x}/{y}{r}.png?apikey=7c352
     attribution: 'Maps &copy; <a href="https://www.thunderforest.com">Thunderforest</a>, Data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>', maxZoom: 22}).addTo(map);
     map.setView([49.72, 6.1], 10);
         // Load data (within the block of the function initMap()
-        //map.data.addGeoJson('../../data/gsm/gsm_towers.js');
-        //map.data.addGeoJson('../../data/gsm/sample_points.js');
-        map.mydata.addGeoJson(gsm_towers);
-        map.mydata.addGeoJson(sample_points);
-	    //map.data.addGeoJson(gsm_towers);
-       // map.data.addGeoJson(sample_points);
+        //map.data.addGeoJson('../../data/gsm/gsm_towers.json');
+        //map.data.addGeoJson('../../data/gsm/sample_points.json');
+        map.data.addGeoJson(gsm_towers);
+        map.data.addGeoJson(sample_points);
+	    //map.mydata.addGeoJson(gsm_towers);
+       // map.mydata.addGeoJson(sample_points);
       //  map.data.loadGeoJson('../../data/gsm/sample_points.js');              
       //  map.data.loadGeoJson('../../data/gsm/gsm_towers.js');
        
@@ -330,7 +332,7 @@ https://{s}.tile.thunderforest.com/neighbourhood/{z}/{x}/{y}{r}.png?apikey=7c352
         if( feature.getProperty('owner')) {
                 }
 
-        new thunderforest.maps.Circle({
+        new Google.maps.Circle({
             strokeColor: colour,
             strokeOpacity: 0.5,
             strokeWeight: 2,
