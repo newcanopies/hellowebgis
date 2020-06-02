@@ -81,22 +81,24 @@
         }
         </style>
     </head>
-    <body>
-        <p style="color: whitesmoke; margin-left: 15px;">Back to <a style="font-weight: bold; color: cadetblue;" href='../index.html'>newcanopies</a></p>
+<body>
+    <p style="color: whitesmoke; margin-left: 15px;">Back to <a style="font-weight: bold; color: cadetblue;" href='../index.html'>newcanopies</a></p>
         
-        <div id="banner" class="container">
-            <h1 style="color: #053061;">Population Change by Commune, LU </br> 1821-2013</h1>
-            <p style="color: #053061; font-weight: bold;">Luxembourg's northward proliferating rate of population change by commune, visualized with Leaflet JS.</p>
-        </div>
-        <!-- map <div> -->
-	    <div id="mapid" style="margin-top: 17px;"></div>
+    <div id="banner" class="container">
+        <h1 style="color: #053061;">Population Change by Commune, LU </br> 1821-2013</h1>
+        <p style="color: #053061; font-weight: bold;">Luxembourg's northward proliferating rate of population change by commune, visualized with Leaflet JS.</p>
+    </div>
+    
+    <!-- map <div> -->
+	<div id="mapid" style="margin-top: 17px;"></div>
 
-        <script>
-            var banner = true;
-         // JavaScript code for loading the map div
-	        var mymap = L.map('mapid').setView([49.2, 6.1], 9);
+    <script>
+        var banner = true;
+
+    // JavaScript code for loading the map div
+	    var mymap = L.map('mapid').setView([49.2, 6.1], 9);
 	  
-	        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+	    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
@@ -108,57 +110,57 @@
             accessToken: 'pk.eyJ1IjoiZXNvZmkiLCJhIjoiY2thYWNtZ20wMHVvMTM0cGdjZjZ2OWRtayJ9.ei9FDkBsBfogL_GOZLOB7A'
             }).addTo(mymap);
 
-            var myLayer = L.geoJSON().addData(luxpop).addTo(mymap);
+        var myLayer = L.geoJSON().addData(luxpop).addTo(mymap);
 
-        // below the map (addData or loadData) to Leaflet
-        // Sources for this: Leaflet and Webkid
-            var Legend = L.Control.extend({
-                options: { position: 'topright' },
-                onAdd: function () {
-                    var legend = L.DomUtil.create('div');
-                    legend.id = "thelegend";
-                    return legend;
+    // below the map (addData or loadData) to Leaflet
+    // Sources for this: Leaflet and Webkid
+        var Legend = L.Control.extend({
+            options: { position: 'topright' },
+            onAdd: function () {
+                var legend = L.DomUtil.create('div');
+                legend.id = "thelegend";
+                return legend;
                 }
-            });
-            mymap.addControl(new Legend());
+        });
+        mymap.addControl(new Legend());
 
         // get names of attributes with the year in desired order to be displayed
-            const tp = ["N1821", "N1851", "N1871", "N1880", "N1890", "N1900", "N1910", "N1922", "N1930", "N1935", "N1947", "N1960", "N1970", "N1981", "N1991", "N2001", "N2011", "N2012", "N2013"];
+        const tp = ["N1821", "N1851", "N1871", "N1880", "N1890", "N1900", "N1910", "N1922", "N1930", "N1935", "N1947", "N1960", "N1970", "N1981", "N1991", "N2001", "N2011", "N2012", "N2013"];
  
         // increment visualization year
-            function updateStyling(i) {
+        function updateStyling(i) {
         // Loop back year if goes over
-            i = (i < tp.length) ? i : 0;
+        i = (i < tp.length) ? i : 0;
         // This iterates through the features, passing the 'feature' to the function one at a time
-            myLayer.setStyle(function(feature) {
-            let mapval = feature.properties[tp[i]];
+        myLayer.setStyle(function(feature) {
+        let mapval = feature.properties[tp[i]];
          
         // selected from ColorBrewer
         // for each feature it returns an object with properties (in this case color, could be other)
-            if(mapval > 35000) return {fillColor: '#67001f', fillOpacity: 0.6};
-            if(mapval > 30000) return {fillColor: '#b2182b', fillOpacity: 0.6};
-            if(mapval > 20000) return {fillColor: '#d6604d', fillOpacity: 0.6};
-            if(mapval > 10000) return {fillColor: '#f4a582', fillOpacity: 0.6};
-            if(mapval > 5000) return {fillColor: '#fddbc7', fillOpacity: 0.6};
-            if(mapval > 3000) return {fillColor: '#d1e5f0', fillOpacity: 0.6};
-            if(mapval > 2000) return {fillColor: '#92c5de', fillOpacity: 0.6};
-            if(mapval > 1000) return {fillColor: '#4393c3', fillOpacity: 0.6};
-            if(mapval > 500) return {fillColor: '#2166ac', fillOpacity: 0.6};
-            if(mapval > 0) return {fillColor: '#053061', fillOpacity: 0.6};
+        if(mapval > 35000) return {fillColor: '#67001f', fillOpacity: 0.6};
+        if(mapval > 30000) return {fillColor: '#b2182b', fillOpacity: 0.6};
+        if(mapval > 20000) return {fillColor: '#d6604d', fillOpacity: 0.6};
+        if(mapval > 10000) return {fillColor: '#f4a582', fillOpacity: 0.6};
+        if(mapval > 5000) return {fillColor: '#fddbc7', fillOpacity: 0.6};
+        if(mapval > 3000) return {fillColor: '#d1e5f0', fillOpacity: 0.6};
+        if(mapval > 2000) return {fillColor: '#92c5de', fillOpacity: 0.6};
+        if(mapval > 1000) return {fillColor: '#4393c3', fillOpacity: 0.6};
+        if(mapval > 500) return {fillColor: '#2166ac', fillOpacity: 0.6};
+        if(mapval > 0) return {fillColor: '#053061', fillOpacity: 0.6};
         });
         // styling: 
         // http://leafletjs.com/examples/geojson/
         // http://leafletjs.com/reference.html#path
 
         // call back (500 milli-seconds)
-            setTimeout(function(){ updateStyling(i + 1) }, 500);
+        setTimeout(function(){ updateStyling(i + 1) }, 500);
 	 
         // add getElementbyId to JS beneath SetTimeout(...).
-            document.getElementById('thelegend').textContent = tp[i];
+        document.getElementById('thelegend').textContent = tp[i];
         };
   
         // first call, the first column (index name is 0)
-            updateStyling(0);
+        updateStyling(0);
       </script>
     </body>
 </html>
