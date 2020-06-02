@@ -56,8 +56,11 @@
               margin: 0; 
          }
         
-        #mapid {height: 100vw;
-                width: 100%;
+        #mapid {/*height: 100vw;
+             /* width: 100vh; */
+               height: 100vh;
+               width: 100vw;
+            /* fixing the w/h places the map centroid and leaflet data in absolute position irrespective of browser window dimensions */
         }
         #thelegend {
                     background-color:whitesmoke;
@@ -96,7 +99,7 @@
         var banner = true;
 
     // JavaScript code for loading the map div
-	    var mymap = L.map('mapid').setView([49.2, 6.1], 9);
+	    var mymap = L.map('mapid').setView([49.7, 6.1], 9);
 	  
 	    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',

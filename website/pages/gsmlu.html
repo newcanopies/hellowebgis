@@ -359,12 +359,13 @@ https://{s}.tile.thunderforest.com/neighbourhood/{z}/{x}/{y}{r}.png?apikey=7c352
         map.setView([49.82, 6.1], 9.5);
    
     var myLayer = L.geoJSON().addData(gsm_towers).addTo(map);
-    var myLayer = L.geoJSON().addData(sample_points).addTo(map);
+    var myLayer = L.geoJSON().addData(sample_points).addTo(map); 
 // ----- var myLayer replaces below:
-    /*   
+    /*        
     map.mydata.addGeoJson(gsm_towers);
-    map.mydata.addGeoJson(sample_points);
+    map.mydata.addGeoJson(sample_points); 
     */
+    
        
         map.data.setStyle(function(feature) {
         let geo = feature.getGeometry();
