@@ -1,4 +1,4 @@
-const sample_points ={
+const sample_points = {
 "type": "FeatureCollection",
 "name": "sample_points",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::2169" } },
