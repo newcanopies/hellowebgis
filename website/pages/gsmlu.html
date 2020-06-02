@@ -6,9 +6,9 @@
 -->  
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta charset="utf-8" />
-    <script src="../../data/gsm/gsm_towers.geojson"></script>
-    <script src="../../data/gsm/sample_points.geojson"></script>
+   
     <title>GSM Signal Strengths LU</title>
+
     <link rel="shortcut icon" href="favicon.ico" id="icon">
     <link rel="icon" type="image/x-icon" href="../imgs/anim_favico/anim_geo/favicon.ico" id="icon"/> 
     <link rel="icon" type="image/png" sizes="16x16" href="../imgs/anim_favico/anim.ico/favicon-16x16.png" id="icon"> 
@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <script src="../../data/gsm/gsm_towers.geojson"></script>
+    <script src="../../data/gsm/sample_points.geojson"></script>
+    
 
     <!--service accepting requests for a set of browser features returning only the 
     polyfills that are needed by the requesting browser. -->
@@ -294,27 +298,79 @@
 https://{s}.tile.thunderforest.com/neighbourhood/{z}/{x}/{y}{r}.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d
 -->
     <div id="map" style="height: 800px; position: absolute; margin-top: 90px;" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
-    <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(-1789px, 238px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 21; transform: translate3d(1729px, -36px, 0px) scale(0.5);"></div><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 22; transform: translate3d(1157px, -29px, 0px) scale(1);"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/33/21.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(977px, -100px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/33/22.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(977px, 156px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/landscape/6/32/21.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(721px, -100px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/34/21.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1233px, -100px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/32/22.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(721px, 156px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/landscape/6/34/22.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1233px, 156px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/landscape/6/33/20.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(977px, -356px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/landscape/6/33/23.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(977px, 412px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/32/20.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(721px, -356px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/34/20.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1233px, -356px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/32/23.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(721px, 412px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/34/23.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1233px, 412px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/31/21.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(465px, -100px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/landscape/6/35/21.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1489px, -100px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/landscape/6/31/22.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(465px, 156px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/35/22.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1489px, 156px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/31/20.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(465px, -356px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/35/20.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1489px, -356px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/31/23.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(465px, 412px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/35/23.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1489px, 412px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-marker-pane"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(8568px, 5667px, 0px) scale(32);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out">−</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control">Maps © <a href="https://www.thunderforest.com">Thunderforest</a>, Data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a></div></div></div></div>
+    <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(-1789px, 238px, 0px);"><div class="leaflet-pane leaflet-tile-pane">
+        <div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 21; transform: translate3d(1729px, -36px, 0px) scale(0.5);"></div>
+        <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 22; transform: translate3d(1157px, -29px, 0px) scale(1);">
+        <img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/33/21.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(977px, -100px, 0px); opacity: 1;">
+        <img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/33/22.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(977px, 156px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/landscape/6/32/21.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(721px, -100px, 0px); opacity: 1;">
+        <img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/34/21.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1233px, -100px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/32/22.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(721px, 156px, 0px); opacity: 1;">
+        <img alt="" role="presentation" src="https://c.tile.thunderforest.com/landscape/6/34/22.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1233px, 156px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/landscape/6/33/20.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(977px, -356px, 0px); opacity: 1;">
+        <img alt="" role="presentation" src="https://c.tile.thunderforest.com/landscape/6/33/23.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(977px, 412px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/32/20.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(721px, -356px, 0px); opacity: 1;">
+        <img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/34/20.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1233px, -356px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/32/23.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(721px, 412px, 0px); opacity: 1;">
+        <img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/34/23.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1233px, 412px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/31/21.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(465px, -100px, 0px); opacity: 1;">
+        <img alt="" role="presentation" src="https://c.tile.thunderforest.com/landscape/6/35/21.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1489px, -100px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.thunderforest.com/landscape/6/31/22.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(465px, 156px, 0px); opacity: 1;">
+        <img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/35/22.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1489px, 156px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/31/20.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(465px, -356px, 0px); opacity: 1;">
+        <img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/35/20.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1489px, -356px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.thunderforest.com/landscape/6/31/23.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(465px, 412px, 0px); opacity: 1;">
+        <img alt="" role="presentation" src="https://b.tile.thunderforest.com/landscape/6/35/23.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1489px, 412px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-marker-pane"></div>
+        <div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane">
+        </div>
+        <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(8568px, 5667px, 0px) scale(32);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out">−</a></div></div><div class="leaflet-top leaflet-right">  
+        </div>
+    <div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control">Maps © <a href="https://www.thunderforest.com">Thunderforest</a>, Data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a></div></div></div></div>
     
     
     </script>
-    
-
-<script type="text/javascript">
-    var map = L.map('map');
-    map.attributionControl.setPrefix('');
-    L.tileLayer('https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}{r}.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d', {
-    attribution: 'Maps &copy; <a href="https://www.thunderforest.com">Thunderforest</a>, Data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>', maxZoom: 22}).addTo(map);
-    map.setView([49.72, 6.1], 10);
-        // Load data (within the block of the function initMap()
+    <script>     
+    // Load data (within the block of the function initMap()
         //map.data.addGeoJson('../../data/gsm/gsm_towers.json');
         //map.data.addGeoJson('../../data/gsm/sample_points.json');
-        map.data.addGeoJson(gsm_towers);
-        map.data.addGeoJson(sample_points);
-	    //map.mydata.addGeoJson(gsm_towers);
+            //map.mydata.addGeoJson(gsm_towers);
        // map.mydata.addGeoJson(sample_points);
       //  map.data.loadGeoJson('../../data/gsm/sample_points.js');              
       //  map.data.loadGeoJson('../../data/gsm/gsm_towers.js');
+        </script>
+    
+
+<script type="text/javascript">
+// shift + Alt + A
+/* // attempt to implement: google.maps.Map(document.....) to thunderforest api tileset
+    var map;
+        function initMap() {
+            map = new thunderforest.tile.Map(document.getElementById('map'), {
+            center: {lat: 49.72, lng: 6.1},
+            zoom: 10
+	    });
+    new thunderforest.tile.Circle({ });
+// --------------------- WORKS FOR maps.GOOGLE API only --------------------------
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 49.72, lng: 6.1},
+        // mapTypeId: 'terrain',
+        //mapTypeId: 'hybrid',
+        zoom: 10
+	});
+    new Google.maps.Circle({
+            strokeColor: colour,
+            strokeOpacity: 0.5,
+            strokeWeight: 2,
+            fillColor: colour,
+            fillOpacity: opacity,
+            map: map,
+            center: geo.get(),
+            radius: c_radius
+        });
+ // ----------------------------------------------------------------------------------    */
+    var map = L.map('map');
+    map.attributionControl.setPrefix('');
+    L.tileLayer('https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}{r}.png?apikey=7c352c8ff1244dd8b732e349e0b0fe8d', {
+        attribution: 'Maps &copy; <a href="https://www.thunderforest.com">Thunderforest</a>, Data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>', 
+        maxZoom: 22}).addTo(map);
+        map.setView([49.72, 6.1], 10);
+   
+        map.data.addGeoJson(gsm_towers);
+        map.data.addGeoJson(sample_points);
+	
        
         map.data.setStyle(function(feature) {
         let geo = feature.getGeometry();
@@ -338,7 +394,7 @@ https://{s}.tile.thunderforest.com/neighbourhood/{z}/{x}/{y}{r}.png?apikey=7c352
         if( feature.getProperty('owner')) {
                 }
 
-        new Google.maps.Circle({
+        new thunderforest.tile.Circle({
             strokeColor: colour,
             strokeOpacity: 0.5,
             strokeWeight: 2,
